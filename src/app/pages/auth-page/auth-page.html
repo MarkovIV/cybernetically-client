@@ -1,0 +1,91 @@
+<div
+  class="absolute left-0 top-0 flex flex-col items-center justify-center flex-nowrap w-full h-full bg-indigo-900 overflow-auto">
+  <div class="flex items-start justify-center flex-col p-1 overflow-auto">
+    <div class="mb-2 text-[#e0e0e0] text-3xl">
+        Log in
+    </div>
+    <div
+      class="overflow-auto bg-gradient-to-r from-blue-300/80 to-gray-700/80 rounded-md p-4 flex items-center justify-center flex-col sm:w-[450px]">
+      <div class="flex w-full justify-end items-center">
+        <button
+          mat-icon-button
+          class="text-[#e0e0e0] w-[70px]"
+          aria-label="Clear all"
+          disabled={{loading}}
+          (click)="clearLoginData()"
+        >
+          <mat-icon>cleaning_services</mat-icon>
+          Clear
+        </button>
+      </div>
+      <div class="flex flex-col w-full justify-center items-center overflow-auto">
+        <div class="mb-1 w-[240px]">
+          <mat-form-field appearance="outline" class="text-[#e0e0e0] w-full">
+            <mat-label class="text-[#e0e0e0]">Enter your username</mat-label>
+            <input
+              class="text-[#e0e0e0]"
+              matInput
+              required="true"
+              type="text"
+              disabled={{loading}}
+              [(ngModel)]="username"
+            >
+            <button *ngIf="username" matSuffix mat-icon-button aria-label="Clear" (click)="username=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <div class="mb-1 w-[240px]">
+          <mat-form-field appearance="outline" class="text-[#e0e0e0] w-full">
+            <mat-label class="text-[#e0e0e0]">Enter your password</mat-label>
+            <input
+              class="text-[#e0e0e0]"
+              matInput
+              disabled={{loading}}
+              required="true"
+              [type]="hide ? 'password' : 'text'"
+              [(ngModel)]="password"
+            >
+            <button disabled={{loading}} mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="flex w-full justify-around items-center">
+        <div class="w-full flex items-center justify-start">
+          <a href="https://t.me/Algo_Man" target="_blank" rel="noreferrer">
+            <mat-icon class="text-[#e0e0e0] text-3xl">telegram</mat-icon>
+          </a>
+        </div>
+        <div class="w-full flex items-center justify-end transition-all">
+          <button
+            mat-raised-button
+            class="w-full text-lg h-[40px]"
+            (click)="login()"
+          >
+            <div class="flex w-full h-full justify-center items-center">
+              <mat-spinner *ngIf="loading" diameter='20'></mat-spinner>
+              <span *ngIf="!loading">Log in</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="mt-2 flex w-full items-center justify-end">
+      <div class="h-[40px] w-[250px] rounded-sm bg-[#e0e0e0] flex items-center justify-between transition-all" *ngIf="alertIsOpen">
+        <div class="ml-3 text-red-600">
+          {{alertMessage}}
+        </div>
+        <div class="">
+          <button mat-icon-button class="text-red-600" aria-label="Close alert" (click)="closeAlert()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="h-[40px] w-[250px]" *ngIf="!alertIsOpen">
+      </div>
+    </div>
+  </div>
+</div>

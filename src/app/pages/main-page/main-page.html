@@ -1,0 +1,51 @@
+<div
+  class="absolute left-0 top-0 flex flex-col items-center justify-center flex-nowrap w-full h-full bg-indigo-900 overflow-auto">
+  <div class="flex items-start justify-center flex-col p-1 overflow-auto">
+    <div class="mb-2 text-[#e0e0e0] text-3xl">
+      Main
+    </div>
+    <div
+      class="overflow-auto bg-gradient-to-r from-blue-300/80 to-gray-700/80 rounded-md p-4 flex items-center justify-center flex-col sm:w-[450px]">
+      <div class="flex w-full justify-end items-center">
+        <button mat-icon-button class="text-[#e0e0e0] w-[90px]" aria-label="Log out"
+          (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          Log out
+        </button>
+      </div>
+      <div class="flex w-full justify-center items-center pt-10 pb-10">
+        <div class="text-lg">
+          Count: {{counter.count}}
+        </div>
+        <div class="ml-5 w-[114px]">
+          <button mat-raised-button class="w-full text-lg h-[40px]" (click)="increment()">
+            <div class="flex w-full h-full justify-center items-center">
+              <mat-spinner *ngIf="loading" diameter='20'></mat-spinner>
+              <span *ngIf="!loading">Increment</span>
+            </div>
+          </button>
+        </div>
+      </div>
+      <div class="flex w-full justify-start items-center">
+        <a href="https://t.me/Algo_Man" target="_blank" rel="noreferrer">
+          <mat-icon class="text-[#e0e0e0] text-3xl">telegram</mat-icon>
+        </a>
+      </div>
+    </div>
+    <div class="mt-2 flex w-full items-center justify-end">
+      <div class="h-[40px] w-[250px] rounded-sm bg-[#e0e0e0] flex items-center justify-between transition-all"
+        *ngIf="alertIsOpen">
+        <div class="ml-3 text-red-600">
+          {{alertMessage}}
+        </div>
+        <div class="">
+          <button mat-icon-button class="text-red-600" aria-label="Close alert" (click)="closeAlert()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="h-[40px] w-[250px]" *ngIf="!alertIsOpen">
+      </div>
+    </div>
+  </div>
+</div>
