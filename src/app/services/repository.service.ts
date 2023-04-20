@@ -27,7 +27,7 @@ export class RepositoryService {
     return {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + this.auth.token
+        'Authorization': 'Bearer ' + this.auth.token,
       })
     }
   }

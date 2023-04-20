@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  urlServer: 'http://5.53.127.139:5000'
-  // urlServer: 'http://localhost:5000'
+  urlServer: 'https://5.53.127.139:5000'
+  // urlServer: 'https://localhost:5000'
 };
 
 /*
