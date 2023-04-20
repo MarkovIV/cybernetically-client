@@ -77,7 +77,11 @@
               "browserTarget": "cybernetically-client:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "sslKey": "./src/app/ssl/private.key",
+            "sslCert": "./src/app/ssl/certificate.crt"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
